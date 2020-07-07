@@ -20,6 +20,7 @@ struct ContentView: View {
                     /* Begin option 1: nil by SELECTION */
                     
                     Text("[none]").tag(nil as String?)
+                        .foregroundColor(.red)
                     
                     /* End option 1 */
 
