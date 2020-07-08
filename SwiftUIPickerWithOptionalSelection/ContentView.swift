@@ -9,35 +9,38 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selection: String? = nil
+    @State private var selectionOne: String? = nil
+    @State private var selectionTwo: String? = nil
     
     let items = ["Item A", "Item B", "Item C"]
     
     var body: some View {
         NavigationView {
             Form {
-                Picker(selection: $selection, label: Text("Picker with optional binding")) {
-                    /* Begin option 1: nil by SELECTION */
-                    
+                // MARK: - Option 1: NIL by SELECTION
+                Picker(selection: $selectionOne, label: Text("Picker with option to select nil item [none]")) {
                     Text("[none]").tag(nil as String?)
                         .foregroundColor(.red)
-                    
-                    /* End option 1 */
 
                     ForEach(items, id: \.self) { item in
                         Text(item).tag(item as String?)
-                        // Tags must be cast to same type as Picker selection ($selection)
+                        // Tags must be cast to same type as Picker selection
                     }
                 }
-                /* Begin option 2: NIL BY BUTTON ACTION */
                 
-//                if selection != nil { // "Remove item" button only appears if selection is not nil
-//                    Button("Remove item") {
-//                        self.selection = nil
-//                    }
-//                }
+                // MARK: - Option 2: NIL by BUTTON ACTION
+                Picker(selection: $selectionTwo, label: Text("Picker with Button that removes selection")) {
+                    ForEach(items, id: \.self) { item in
+                        Text(item).tag(item as String?)
+                        // Tags must be cast to same type as Picker selection
+                    }
+                }
                 
-                /* End Options 2 */
+                if selectionTwo != nil { // "Remove item" button only appears if selection is not nil
+                    Button("Remove item") {
+                        self.selectionTwo = nil
+                    }
+                }
             }
         }
     }
