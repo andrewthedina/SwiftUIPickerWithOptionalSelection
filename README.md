@@ -1,10 +1,10 @@
-Here are two options for a SwiftUI Picker with optional selection:
+##Here are two options for a SwiftUI Picker with optional selection:
 
-1. A "[none]" row that can be selected and sets the selection to nil.
+###1. A "[none]" row that can be selected and sets the selection to nil.
 
 ![](Option1.gif)
 
-2. A "Remove item" button that appears when something was selected thats sets selection back to nil.
+###2. A "Remove item" button that appears when something was selected thats sets selection back to nil.
 
 ![](Option2.gif)
 
