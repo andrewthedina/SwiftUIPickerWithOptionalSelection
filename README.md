@@ -1,7 +1,12 @@
 Here are two options for a SwiftUI Picker with optional selection:
 
 1. A "[none]" row that can be selected and sets the selection to nil.
+
+![](Option 1.gif)
+
 2. A "Remove item" button that appears when something was selected thats sets selection back to nil.
+
+![](Option 2.gif)
 
 The trick is to set the selection binding to optional, and cast the tags to optionals (of the same type as the selection binding).
 
